@@ -1,0 +1,14 @@
+# Core libraries
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Statistical analysis
+scipy>=1.10.0
+
+# Data visualization
+matplotlib>=3.7.0
+plotly>=5.0.0
+
+# Environment / notebook
+jupyter>=1.0.0
+
