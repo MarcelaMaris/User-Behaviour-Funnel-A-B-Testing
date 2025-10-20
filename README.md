@@ -13,7 +13,8 @@ It analyses **user behaviour** in a food-delivery app and evaluates the impact o
 Two control groups (246 and 247) used the **original font**, and one test group (248) received the **new design**.
 The analysis explores how users move through the **conversion funnel** and checks whether the new font affects user engagement or purchases.
 
-💻 **Repository:** [https://github.com/MarcelaMaris/Project-11-Tripleten](https://github.com/MarcelaMaris/Project-11-Tripleten)
+💻 **Repository:** [https://github.com/MarcelaMaris/User-Behaviour-Funnel-A-B-Testing](https://github.com/MarcelaMaris/User-Behaviour-Funnel-A-B-Testing)
+
 
 ---
 
