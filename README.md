@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="cover_user.png" width="100%" alt="E-Commerce Analytics Dashboard cover">
+</p>
+
 # 📱 User Behaviour Funnel & A/B Testing — Food App Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
