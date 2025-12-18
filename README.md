@@ -1,100 +1,139 @@
 <p align="center">
-  <img src="cover_user.png" width="100%" alt="E-Commerce Analytics Dashboard cover">
+  <img src="cover_user.png" width="100%" alt="User Behaviour Funnel & A/A/B Testing cover">
 </p>
 
-# 📱 User Behaviour Funnel & A/B Testing — Food App Analysis
+## <img src="icons/funnel.png" width="50">  &nbsp;&nbsp;User Behaviour Funnel & A/A/B Testing — Food-Delivery App Analysis
+<br>
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Statistics](https://img.shields.io/badge/Statistical_Testing-A/A/B-red)
-![Visualization](https://img.shields.io/badge/Visualization-Plotly%20%7C%20Matplotlib-green)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.10%2B-0A3756?style=flat&logo=python&logoColor=F5F7FA&labelColor=E8AA3A)
+![Pandas](https://img.shields.io/badge/Pandas-lib-0A3756?style=flat&logo=pandas&logoColor=F5F7FA&labelColor=E8AA3A)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-0A3756?style=flat&logo=jupyter&logoColor=F5F7FA&labelColor=E8AA3A)
+![Experiment](https://img.shields.io/badge/Experiment-A%2FA%2FB%20Testing-0A3756?style=flat&logo=academia&logoColor=F5F7FA&labelColor=E8AA3A)
+![Visualisation](https://img.shields.io/badge/Visualisation-Plotly%20%7C%20Matplotlib-0A3756?style=flat&logo=plotly&logoColor=F5F7FA&labelColor=E8AA3A)
 
-## 📌 Project Overview
-
-This project was developed as part of the **Data Analytics Bootcamp at [TripleTen](https://tripleten.com)**.
-It analyses **user behaviour** in a food-delivery app and evaluates the impact of a **font-style redesign** through an **A/A/B test**.
-
-Two control groups (246 and 247) used the **original font**, and one test group (248) received the **new design**.
-The analysis explores how users move through the **conversion funnel** and checks whether the new font affects user engagement or purchases.
-
-💻 **Repository:** [https://github.com/MarcelaMaris/User-Behaviour-Funnel-A-B-Testing](https://github.com/MarcelaMaris/User-Behaviour-Funnel-A-B-Testing)
-
-
----
-
-## 🎯 Objectives
-
-* Clean and prepare raw **user event logs** from the app.
-* Explore the **sales funnel** and identify drop-offs between stages.
-* Validate data quality and experimental group balance through an **A/A test**.
-* Run statistical tests (Z-test with Bonferroni correction) to compare event proportions.
-* Determine whether the new font design (Group 248) significantly changes user behaviour.
+> This project analyses **user behaviour** in a food-delivery startup app and evaluates the impact of a **UI font change**  
+> through an **A/A/B experiment**.
+>
+> The analysis combines **product analytics** (conversion funnel) with **statistical testing** (two-proportion z-tests)  
+> to assess whether the variant changed user behaviour.
+>
+> It is designed to mirror how a **Data Analyst / Product Analyst** would validate experiment integrity (A/A),  
+> measure funnel drop-offs, and make evidence-based rollout decisions.
 
 ---
 
-## 🧭 Methodology
+## <img src="icons/objectives.png" width="30">  &nbsp;&nbsp;Objectives
 
-1. **Data Preparation** – Loaded, renamed, and formatted columns from `logs_exp_us.xlsx` (timestamp conversion, date extraction).
-2. **EDA (Exploratory Data Analysis)** – Counted unique users/events, determined event frequency, and ensured coverage for all groups.
-3. **Funnel Analysis** – Built a sequential funnel (`MainScreenAppear → OffersScreenAppear → CartScreenAppear → PaymentScreenSuccessful`) to visualise retention and loss between stages.
-4. **A/A Testing** – Compared groups 246 and 247 using a two-proportion Z-test with Bonferroni correction to confirm randomisation validity.
-5. **A/B Testing** – Tested whether the new font (group 248) influenced engagement or conversion compared with controls.
-
----
-
-## 📊 Conclusions
-
-* Approximately **7,500 users** recorded events; only ~6% reached the final payment step.
-* The highest drop-off occurred between **Offers → Cart**, signalling a key optimisation point.
-* **A/A test confirmed group equivalence**, validating experimental reliability.
-* The **new font (group 248)** did **not produce statistically significant differences** in any stage of the funnel.
-* Conversion funnel visualisation highlighted consistent user behaviour across all groups.
+- Clean and prepare raw **event logs** for analysis (timestamps, dates, standardised columns).
+- Understand user engagement through key metrics (events, users, coverage period).
+- Build a **sequential conversion funnel** to quantify drop-offs across the user journey.
+- Validate experimental integrity with an **A/A test** (control vs control).
+- Test the impact of the UI change (new font) with **A/B comparisons** using z-tests.
+- Apply **Bonferroni correction** to control false positives from multiple tests.
 
 ---
 
-## 📝 Recommendations
+## <img src="icons/features.png" width="30">  &nbsp;&nbsp;Key Analyses & Features
 
-* **Focus on mid-funnel optimisation**
-  Prioritise UX improvements between offers and cart screens, where most users abandon the flow.
-* **Test broader design changes**
-  Font alone did not impact engagement; future tests could involve button layout, colours, or navigation clarity.
-* **Maintain experiment discipline**
-  Continue validating A/A consistency before A/B rollouts to ensure experimental reliability.
-* **Monitor behaviour trends**
-  Build a periodic funnel analysis to track shifts in conversion and friction points over time.
+- **Data Preparation:**  
+  Renamed fields, converted UNIX timestamps to datetime, extracted dates, and ensured tidy event-level structure.
 
----
+- **Reliability Cut (Data Quality):**  
+  Trimmed early sparse data and analysed only the reliable period **from 2019-08-01 onwards**.
 
-## 💡 Key Business Impact
+- **Experiment Group Balance:**  
+  Verified that groups **246, 247, 248** had similar sample sizes after filtering.
 
-* Provided data-driven evidence that **visual style adjustments** (font redesign) have minimal behavioural effect.
-* Established a **reusable experimental framework** for future UI/UX tests.
-* Identified the **main user loss point** in the funnel, enabling focused optimisation.
-* Strengthened product decision-making with **statistical validation** rather than subjective design opinions.
+- **Sequential Funnel Modelling:**  
+  Built an ordered funnel enforcing event chronology:  
+  *MainScreenAppear → OffersScreenAppear → CartScreenAppear → PaymentScreenSuccessful*.
 
----
+- **Funnel Visualisation:**  
+  Line chart and Plotly funnel chart to highlight the steepest drop-off points.
 
-## 🛠️ Tech Stack
-
-* **Data Analysis**: Python, Pandas, NumPy
-* **Statistical Testing**: SciPy, math, Bonferroni correction
-* **Visualisation**: Matplotlib, Plotly (Funnel)
-* **Environment**: Jupyter Notebook
-* **Dataset**: `data/logs_exp_us.xlsx`
+- **A/A/B Statistical Testing:**  
+  Two-proportion z-tests for event-level participation rates, with Bonferroni correction for multiple comparisons:
+  - A/A: **246 vs 247**
+  - A/B: **248 vs 246**, **248 vs 247**, and **248 vs combined controls**
 
 ---
 
-## 📘 Folder Structure
+## <img src="icons/dataset.png" width="30">  &nbsp;&nbsp;Dataset
 
-```
-Project-11-Tripleten/
-│
-├── data/
-│   └── logs_exp_us.xlsx
-│
-├── notebooks/
-│   └── user_behavior_funnel_abtest.ipynb
-│
-└── README.md
-```
+**Source:**  
+Simulated event-log dataset from a food-delivery app (bootcamp scenario).
 
+**Columns**
+- `event_name` — event type (screen / action)
+- `user_id` — anonymised device/user identifier
+- `timestamp` — UNIX time
+- `exp_id` — experiment group (246, 247, 248)
+
+**Notes**
+- The original file is tab-delimited (`.csv` with `\t` separator).
+- Early dates were sparse; analysis focuses on the stable period from **2019-08-01**.
+
+---
+
+## <img src="icons/funnel.png" width="30">  &nbsp;&nbsp;Conversion Funnel
+
+The sequential funnel (ordered by time) shows:
+
+- **Main → Offers:** 56.6%  
+- **Offers → Cart:** 42.1%  
+- **Cart → Payment:** 25.7%  
+- **End-to-end conversion:** **~6.1%**
+
+This highlights a strong bottleneck in the later stages, especially **Cart → Payment**, where abandonment is most acute.
+
+---
+
+## <img src="icons/conclusions.png" width="30">  &nbsp;&nbsp;Key Findings
+
+- The experiment was **well configured**, with balanced groups and a clean A/A validation.
+- The funnel shows a steep drop-off, with only **~6%** of users reaching payment completion.
+- The **A/A test (246 vs 247)** found no significant differences, supporting reliable randomisation.
+- The **A/B comparisons** showed **no statistically significant differences** between the new font (248) and controls.
+- Under a conservative multiple-testing approach (Bonferroni), results remain consistent:  
+  **the font change did not meaningfully affect user behaviour**.
+
+---
+
+## <img src="icons/recommendations.png" width="30">  &nbsp;&nbsp;Recommendations
+
+- **Prioritise checkout optimisation**  
+  Investigate friction points in *Cart → Payment* (trust, payment options, form complexity, error states).
+
+- **Test higher-impact UI/UX changes**  
+  Font alone showed no measurable effect; future experiments could test CTA placement, navigation clarity, and checkout flow simplification.
+
+- **Maintain experiment discipline**  
+  Keep using A/A validation and multiple-testing control to avoid false positives and risky rollouts.
+
+- **Operationalise funnel monitoring**  
+  Track funnel conversion weekly and segment by device, traffic source, or cohort to pinpoint behavioural shifts.
+
+---
+
+## <img src="icons/impact.png" width="30">  &nbsp;&nbsp;Business Impact
+
+- Provided evidence that a **cosmetic UI change** (font) is safe to roll out.
+- Identified the primary conversion bottleneck for product prioritisation (**Cart → Payment**).
+- Delivered a reusable framework for **experiment validation + funnel insight generation**.
+
+---
+
+## <img src="icons/techstack.png" width="30">  &nbsp;&nbsp;Tech Stack
+
+- **Languages & Libraries:** Python (3.10), Pandas, NumPy  
+- **Statistics:** SciPy / z-tests, Bonferroni correction  
+- **Visualisation:** Matplotlib, Plotly  
+- **Environment:** Jupyter Notebook  
+- **Version Control:** Git & GitHub  
+
+---
+
+<p align="center">
+  <sub>📊 Designed & developed by <b>Marcela Maris</b> — Data Analytics Portfolio</sub><br>
+  <sub><i>Product Analytics • Funnel Analysis • Experimentation</i></sub>
+</p>
